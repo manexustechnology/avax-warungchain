@@ -100,7 +100,7 @@ const QRCodePaymentForm = ({
         <div className="space-y-4">
           <div className="text-center">
             <p className="text-sm text-muted-foreground mb-2">Ask your customer to scan this QR code</p>
-            <div className="font-bold text-lg mb-4">${total.toFixed(2)} ({total.toFixed(2)} SUI)</div>
+            <div className="font-bold text-lg mb-4">${total.toFixed(2)} ({total.toFixed(2)} AVAX)</div>
             
             {isConnected ? (
               <div className="bg-white p-4 mx-auto w-64 h-64 flex items-center justify-center relative rounded-lg">
