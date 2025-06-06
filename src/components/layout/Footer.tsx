@@ -48,7 +48,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">SUI Protocol</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Avax Network</a></li>
             </ul>
           </div>
           

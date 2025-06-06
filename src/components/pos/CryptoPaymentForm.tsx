@@ -35,7 +35,7 @@ const CryptoPaymentForm = ({
     navigator.clipboard.writeText(address);
     toast({
       title: "Address Copied",
-      description: "The SUI address has been copied to clipboard.",
+      description: "The Avalance address has been copied to clipboard.",
     });
   };
   
@@ -47,7 +47,7 @@ const CryptoPaymentForm = ({
       setIsProcessing(false);
       toast({
         title: "Payment Successful",
-        description: `SUI payment of $${total.toFixed(2)} was successful.`,
+        description: `AVAX payment of $${total.toFixed(2)} was successful.`,
       });
       
       // Close dialog and notify parent component
@@ -62,7 +62,7 @@ const CryptoPaymentForm = ({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Wallet className="h-5 w-5" />
-            SUI Payment
+            AVAX Payment
           </DialogTitle>
         </DialogHeader>
         
@@ -72,13 +72,13 @@ const CryptoPaymentForm = ({
               <p className="text-sm text-muted-foreground">Send exactly</p>
               <div className="text-xl font-bold">${total.toFixed(2)} USD</div>
               <p className="text-sm text-muted-foreground">Approximately</p>
-              <div className="text-md">SUI: {estimatedSUI}</div>
-              <div className="text-md">SPX: {estimatedSPX}</div>
+              <div className="text-md">AVAX: {estimatedSUI}</div>
+              <div className="text-md">YYAVAX: {estimatedSPX}</div>
             </div>
             
             <div className="space-y-3">
               <div className="space-y-2">
-                <Label className="text-xs">SUI Address</Label>
+                <Label className="text-xs">AVAX Address</Label>
                 <div className="flex items-center">
                   <Input 
                     value={suiAddress}
@@ -98,7 +98,7 @@ const CryptoPaymentForm = ({
               </div>
               
               <div className="space-y-2">
-                <Label className="text-xs">SPX Token Address</Label>
+                <Label className="text-xs">YYAVAX Token Address</Label>
                 <div className="flex items-center">
                   <Input 
                     value={sptAddress}
