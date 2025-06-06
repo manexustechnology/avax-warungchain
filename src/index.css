@@ -1,0 +1,206 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 205 100% 60%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 1rem;
+    
+    /* Avalanche Network Colors */
+    --avax-primary: 232 100% 67%; /* Avalanche Red/Primary */
+    --avax-secondary: 0 100% 50%; /* Bright Red */
+    --avax-accent: 14 100% 57%; /* Orange accent */
+    --avax-blue: 220 100% 60%; /* Avalanche Blue */
+    
+    /* Indonesian Warung Colors */
+    --warung-wooden: 30 25% 45%; /* Warm brown wood */
+    --warung-warm: 25 60% 55%; /* Warm terracotta */
+    --warung-accent: 15 70% 50%; /* Rich orange */
+    --warung-dark: 30 15% 25%; /* Dark brown text */
+    --warung-muted: 30 10% 50%; /* Muted brown */
+    --warung-pattern: 45 40% 70%; /* Light pattern color */
+  }
+
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(232, 100, 171, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 127, 0, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(139, 69, 19, 0.03) 0%, transparent 50%);
+  }
+
+  .glass {
+    @apply backdrop-blur-lg bg-white/50 border border-white/20 shadow-glass rounded-2xl;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-lg bg-black/10 border border-white/10 shadow-glass rounded-2xl;
+  }
+
+  .glass-card {
+    @apply glass transition-all duration-300 hover:shadow-lg hover:bg-white/60;
+  }
+
+  /* Warung-style card with traditional elements */
+  .warung-card {
+    @apply backdrop-blur-md bg-white/70 border-2 border-warung-accent/20 shadow-xl rounded-2xl relative;
+    background-image: 
+      linear-gradient(45deg, rgba(139, 69, 19, 0.02) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(139, 69, 19, 0.02) 25%, transparent 25%);
+    background-size: 20px 20px;
+  }
+
+  .warung-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+      hsl(var(--warung-accent)), 
+      hsl(var(--avax-primary)), 
+      hsl(var(--warung-warm))
+    );
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-[1.02];
+  }
+  
+  .section-padding {
+    @apply py-16 px-6 md:py-24 md:px-8 lg:px-16;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium transition-all duration-300 hover:shadow-md active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-medium transition-all duration-300 hover:shadow-sm active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 bg-transparent border border-primary text-primary rounded-full font-medium transition-all duration-300 hover:bg-primary/5 active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply px-6 py-3 bg-accent text-white rounded-full font-medium transition-all duration-300 hover:shadow-md active:scale-[0.98];
+  }
+
+  /* Avalanche-themed buttons */
+  .btn-avalanche {
+    @apply px-6 py-3 bg-gradient-to-r from-avax-primary to-avax-secondary text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-avax-primary/25 active:scale-[0.98] relative overflow-hidden;
+  }
+
+  .btn-avalanche::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-avalanche:hover::before {
+    left: 100%;
+  }
+
+  .btn-avalanche-large {
+    @apply px-8 py-4 bg-gradient-to-r from-avax-primary to-avax-secondary text-white rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-xl hover:shadow-avax-primary/30 active:scale-[0.98] relative overflow-hidden;
+  }
+
+  /* Warung-themed buttons */
+  .btn-warung {
+    @apply px-6 py-3 bg-gradient-to-r from-warung-wooden to-warung-warm text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-warung-accent/25 active:scale-[0.98] border-2 border-warung-accent/30;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-md;
+  }
+
+  .tag {
+    @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground;
+  }
+}
+
+/* Avalanche Network Color Classes */
+@layer utilities {
+  .text-avax-primary { color: hsl(var(--avax-primary)); }
+  .text-avax-secondary { color: hsl(var(--avax-secondary)); }
+  .text-avax-accent { color: hsl(var(--avax-accent)); }
+  .text-avax-blue { color: hsl(var(--avax-blue)); }
+  
+  .bg-avax-primary { background-color: hsl(var(--avax-primary)); }
+  .bg-avax-secondary { background-color: hsl(var(--avax-secondary)); }
+  .bg-avax-accent { background-color: hsl(var(--avax-accent)); }
+  .bg-avax-blue { background-color: hsl(var(--avax-blue)); }
+  
+  .border-avax-primary { border-color: hsl(var(--avax-primary)); }
+  .border-avax-secondary { border-color: hsl(var(--avax-secondary)); }
+  .border-avax-accent { border-color: hsl(var(--avax-accent)); }
+  
+  /* Warung Color Classes */
+  .text-warung-wooden { color: hsl(var(--warung-wooden)); }
+  .text-warung-warm { color: hsl(var(--warung-warm)); }
+  .text-warung-accent { color: hsl(var(--warung-accent)); }
+  .text-warung-dark { color: hsl(var(--warung-dark)); }
+  .text-warung-muted { color: hsl(var(--warung-muted)); }
+  
+  .bg-warung-wooden { background-color: hsl(var(--warung-wooden)); }
+  .bg-warung-warm { background-color: hsl(var(--warung-warm)); }
+  .bg-warung-accent { background-color: hsl(var(--warung-accent)); }
+  .bg-warung-dark { background-color: hsl(var(--warung-dark)); }
+  .bg-warung-pattern { background-color: hsl(var(--warung-pattern)); }
+  
+  .border-warung-wooden { border-color: hsl(var(--warung-wooden)); }
+  .border-warung-warm { border-color: hsl(var(--warung-warm)); }
+  .border-warung-accent { border-color: hsl(var(--warung-accent)); }
+}
