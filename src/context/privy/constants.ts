@@ -1,7 +1,7 @@
 
 // Privy configuration
-export const PRIVY_APP_ID = 'cmatnx3ma031ol50mb860rscw';
-export const PRIVY_CLIENT_ID = 'client-WY6LKbeokf6by1G1ujbmvb9ACeLgnRCLrw19banLB7cKA';
+export const PRIVY_APP_ID = 'cmbl1trpp0034ld0lazuuo855';
+export const PRIVY_CLIENT_ID = 'client-WY6MBF3kqwP1qefum4SN1JrJfw8sEeaNkUU6G2bq6sAfy';
 
 // Demo users for legacy support
 export const demoUsers = {
